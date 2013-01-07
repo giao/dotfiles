@@ -1,0 +1,28 @@
+defmonitor      on
+defscrollback   1000
+defutf8         on
+shell           -bash
+startup_message off
+
+# rxvt-compatible
+bindkey 'Od' prev
+bindkey 'Oc' next
+# xterm-compatible
+bindkey '[1;5D' prev
+bindkey '[1;5C' next
+bindkey '' focus
+bindkey 'O5P' select 0
+bindkey 'O5Q'  select 1
+bindkey 'O5R'  select 2
+bindkey 'O5S'  select 3
+bindkey '[15;5~'  select 4
+bindkey '[17;5~'  select 5
+bindkey '[18;5~'  select 6
+bindkey '[19;5~'  select 7
+bindkey '[20;5~'  select 8
+bindkey '[21;5~'  select 9
+
+backtick 1 99999 99999 id -u -n
+caption always "%{Gb}%1`@%H > %{wb}%?%-Lw%?%{Rb}[%n%f %t]%{wb}%?%+Lw%?%=%{Cb}%l %{Mb}%c:%s "
+
+# vim: set ft=screen:

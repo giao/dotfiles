@@ -1,0 +1,14 @@
+set  convert-meta            off
+set  meta-flag               on
+set  output-meta             on
+set  bell-style              visible
+set  horizontal-scroll-mode  on
+
+$if Bash
+    "\ep":"ssh pgdba@localhost\n"
+    "\eOP":"ssh d\n"
+$endif
+$if Psql
+    "\ee":"explain analyze "
+$endif
+$include ~/.curo/docs/readline.inputrc

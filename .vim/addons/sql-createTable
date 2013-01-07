@@ -1,0 +1,45 @@
+#!/usr/bin/perl
+while (my $l = <>) {
+	s/^\s*//;
+	s/\s*$//;
+	makeTable($l);
+}
+exit;
+
+sub makeTable {
+	my $line = shift;
+	$line =~ s/^(\S+)\s+//;
+	my $sTableName = lc($1);
+	my @aFields = ();
+	my @aPreFields = split(/\s*,\s*/, $line);
+	my $sMaxFieldLength = 0;
+	my $sMaxTypeLength = 0;
+	for my $x (@aPreFields) {
+		my ($field, $type) = $x =~ /^(\S+)\s+(\S.*)$/;
+		my $default = "''";
+		$default = 0 if $type =~ /^(numeric|decimail|integer|biginteger|int\d|float|double)/i;
+		$default = "now()" if $type =~ /^(date|time)/i;
+		$default = "'127.0.0.1'" if $type =~ /^(inet|cidr)/i;
+		$default = "'false'" if $type =~ /^bool/i;
+		push @aFields, {
+			'name'	=>	lc($field),
+			'type'	=>	uc($type),
+			'default'	=>	$default
+		};
+		$sMaxFieldLength = length($field) if length($field) > $sMaxFieldLength;
+		$sMaxTypeLength = length($type) if length($type) > $sMaxTypeLength;
+	}
+	printf("-- %-11s : %s\n", 'table', $sTableName);
+	printf("-- %-11s : \n", 'description');
+	printf("-- %-11s : \n", 'fields');
+	for my $x (@aFields) {
+		printf("-- (%-${sMaxTypeLength}s) %-${sMaxFieldLength}s : \n", $x->{'type'}, $x->{'name'});
+	}
+	printf("\nCREATE TABLE %s (\n", $sTableName);
+	printf("	%-${sMaxFieldLength}s %-${sMaxTypeLength}s,\n", "id", "BIGSERIAL");
+	for my $x (@aFields) {
+		printf("	%-${sMaxFieldLength}s %-${sMaxTypeLength}s NOT NULL DEFAULT %s,\n", $x->{'name'}, $x->{'type'}, $x->{'default'});
+	}
+	printf("	PRIMARY KEY (id)\n");
+	printf(");\n\n", $sTableName);
+}

@@ -1,0 +1,16 @@
+#!/usr/bin/perl
+while (my $l = <>) {
+	if ($l =~ s/ NOT NULL.*/,/) {
+		print $l;
+		next;
+	}
+	next unless $l=~ /^\s*(\S+)\s+(\S.*?)\s*,/;
+	my $type = $2;
+	my $default = "''";
+	$default = 0 if $type =~ /^(numeric|decimail|integer|biginteger|int\d|float|double)/i;
+	$default = "now()" if $type =~ /^(date|time)/i;
+	$default = "'127.0.0.1'" if $type =~ /^(inet|cidr)/i;
+	$default = "'false'" if $type =~ /^bool/i;
+	$l =~ s/,$/ NOT NULL DEFAULT $default,/;
+	print $l;
+}

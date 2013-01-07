@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+use strict;
+print "<code>";
+my $buffer = undef;
+while (<>){
+    s/&/&amp;/g;
+    s/</&lt;/g;
+    s/>/&gt;/g;
+    s/"/&quot;/g;
+    s/\A\s*\z/&nbsp;\n/g;
+    print $buffer if defined $buffer;
+    $buffer = $_;
+}
+$buffer =~ s/\s*$//;
+print "$buffer</code>";
