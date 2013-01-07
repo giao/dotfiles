@@ -1,47 +1,47 @@
-#!/bin/bash
-
-# This script is intended to run as:
-# wget -O - -q http://svn.depesz.com/svn/environment/take-environment.sh | bash -
+#!/usr/bin/env bash
 
 set -e
+script_name="${BASH_SOURCE[0]}"
+script_dir="$( dirname "$script_name" )"
+
+cd "$script_dir"
+script_dir="$( pwd -P )"
+
 cd $HOME
 
 OLDDIR=$( date '+old-%Y%m%d_%H%M%S' )
 echo "Old dir: $OLDDIR"
 mkdir "$OLDDIR"
 
-if [[ -e .environment ]]
-then
-    mv .environment "$OLDDIR"
-fi
-
-svn co http://svn.depesz.com/svn/environment/ .environment
-
-for dotfile in .bash_profile  .bashrc  .bcrc  .inputrc  .perltidyrc  .psqlrc  .screenrc .vim  .vimrc .tmux.conf
+while read dotfile
 do
-    if [[ -e "$dotfile" ]]
+    just_name="$( basename "$dotfile" )"
+    if [[ -e "$just_name" ]]
     then
-        mv "$dotfile" "$OLDDIR"
+        mv "$just_name" "$OLDDIR"
     fi
-    ln -s ".environment/$dotfile" $dotfile
-done
+    ln -s "$dotfile" "$just_name"
+done < <( find "$script_dir" -mindepth 1 -maxdepth 1 -name '.*' ! -name .ssh ! -name .git )
 
-if [[ ! -e .ssh ]]
+if [[ -e .ssh ]]
 then
-    mkdir .ssh
+    echo ".ssh exists, modifications skipped"
+else
+    mkdir -pv .ssh/sockets
+    cp -v "$script_dir"/.ssh/* .ssh/
+    chmod go-rwx .ssh/*
 fi
 
-if [[ -e .ssh/config ]]
-then
-    echo ".ssh/config exists - skipping"
-    exit
-fi
-
-cp .environment/.ssh/config .ssh
-if [[ ! -e .ssh/sockets ]]
-then
-    mkdir .ssh/sockets
-fi
+mkdir -p bin/
+while read dotfile
+do
+    just_name="$( basename "$dotfile" )"
+    if [[ -e bin/"$just_name" ]]
+    then
+        mv "$just_name" "$OLDDIR"
+    fi
+    ln -s "$dotfile" bin/"$just_name"
+done < <( find "$script_dir"/bin -mindepth 1 -maxdepth 1 -type f )
 
 echo "All done."
 
