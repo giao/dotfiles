@@ -4,6 +4,10 @@ syntax on
 filetype plugin indent on
 
 
+" leader for future maps
+let mapleader = ','
+
+
 " Searching options
 set incsearch
 set ignorecase
@@ -41,9 +45,23 @@ execute pathogen#infect()
 " Plugin configuration
 " Syntastic:
 let g:syntastic_check_on_open = 1
+
 " NERD-Tree:
 nmap <F3> :NERDTreeToggle<Enter>
 
+" NERD-Commenter:
+let NERDSpaceDelims = 1
+let NERDMenuMode = 0
+" <esc>c is generated on konsole with left-alt + c
+nnoremap <esc>c :call NERDComment("n", "toggle")<cr>j
+vnoremap <esc>c :call NERDComment("v", "toggle")<cr>
+
+" template
+" Move cursor to position marked with <+CURSOR+>, removing the marker
+autocmd User plugin-template-loaded
+            \    if search('<+CURSOR+>')
+            \  |   execute 'normal! "_da>'
+            \  | endif
 
 " Color schema
 colorscheme depesz
