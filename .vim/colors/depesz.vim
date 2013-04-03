@@ -191,7 +191,9 @@ if &t_Co > 255
     hi VisualNOS       ctermfg=236   ctermbg=210     cterm=bold
     hi WarningMsg      ctermfg=15    ctermbg=236     cterm=bold
     hi WildMenu        ctermbg=236   ctermfg=194     cterm=bold
-    hi CursorLine      ctermbg=236   cterm=none
+    hi CursorLine      ctermbg=237   cterm=none
+    hi CursorColumn    ctermbg=237   cterm=none
+
 
     " spellchecking, always "bright" background
     hi SpellLocal ctermfg=14  ctermbg=237
@@ -202,6 +204,9 @@ if &t_Co > 255
     " pmenu
     hi PMenu      ctermfg=248  ctermbg=0
     hi PMenuSel   ctermfg=223 ctermbg=235
+    
+    " For Syntastic
+    hi SignColumn      ctermbg=235
 
     if exists("g:darkburn_high_Contrast")
         hi Normal ctermfg=188 ctermbg=234

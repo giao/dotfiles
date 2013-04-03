@@ -34,4 +34,4 @@ nmap <F3> :NERDTreeToggle<Enter>
 
 
 " Color schema
-colorscheme darkburn
+colorscheme depesz
