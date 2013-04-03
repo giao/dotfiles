@@ -63,5 +63,8 @@ autocmd User plugin-template-loaded
             \  |   execute 'normal! "_da>'
             \  | endif
 
+" tagbar
+nmap <F8> :TagbarToggle<Enter>
+
 " Color schema
 colorscheme depesz
