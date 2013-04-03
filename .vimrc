@@ -16,3 +16,8 @@ nnoremap  <Enter>  :nohlsearch<Enter>
 " Initialization of pathogen plugin
 " Pathogen: https://github.com/tpope/vim-pathogen
 execute pathogen#infect()
+
+
+" Plugin configuration
+" Syntastic:
+let g:syntastic_check_on_open = 1
