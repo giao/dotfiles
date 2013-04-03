@@ -1,2 +1,0 @@
-setlocal ai
-setlocal iskeyword+=-
