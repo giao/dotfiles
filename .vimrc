@@ -12,6 +12,9 @@ set hlsearch
 " This map makes <enter> in normal mode hide search hilights
 nnoremap  <Enter>  :nohlsearch<Enter>
 
+set number
+set cursorline
+set cursorcolumn
 
 " Virtually all terminals now are 256-color enabled, but it's common to have
 " wrong TERM set, for various reasons.
@@ -28,3 +31,7 @@ execute pathogen#infect()
 let g:syntastic_check_on_open = 1
 " NERD-Tree:
 nmap <F3> :NERDTreeToggle<Enter>
+
+
+" Color schema
+colorscheme darkburn
