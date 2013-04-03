@@ -12,13 +12,18 @@ set hlsearch
 " This map makes <enter> in normal mode hide search hilights
 nnoremap  <Enter>  :nohlsearch<Enter>
 
+" Various settings
 set number
 set cursorline
 set cursorcolumn
+set laststatus=2
 
 " Virtually all terminals now are 256-color enabled, but it's common to have
 " wrong TERM set, for various reasons.
 set t_Co=256
+
+" We should be using UTF-8 always
+set encoding=utf-8
 
 
 " Initialization of pathogen plugin
