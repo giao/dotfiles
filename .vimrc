@@ -13,6 +13,11 @@ set hlsearch
 nnoremap  <Enter>  :nohlsearch<Enter>
 
 
+" Virtually all terminals now are 256-color enabled, but it's common to have
+" wrong TERM set, for various reasons.
+set t_Co=256
+
+
 " Initialization of pathogen plugin
 " Pathogen: https://github.com/tpope/vim-pathogen
 execute pathogen#infect()
