@@ -26,3 +26,5 @@ execute pathogen#infect()
 " Plugin configuration
 " Syntastic:
 let g:syntastic_check_on_open = 1
+" NERD-Tree:
+nmap <F3> :NERDTreeToggle<Enter>
