@@ -4,11 +4,6 @@ syntax on
 filetype plugin indent on
 
 
-" Initialization of pathogen plugin
-" Pathogen: https://github.com/tpope/vim-pathogen
-execute pathogen#infect()
-
-
 " Searching options
 set incsearch
 set ignorecase
@@ -18,3 +13,6 @@ set hlsearch
 nnoremap  <Enter>  :nohlsearch<Enter>
 
 
+" Initialization of pathogen plugin
+" Pathogen: https://github.com/tpope/vim-pathogen
+execute pathogen#infect()
