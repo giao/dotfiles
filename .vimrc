@@ -69,6 +69,10 @@ set winminheight=0
 set lazyredraw
 set scrolloff=5
 
+
+" netrw
+let g:netrw_http_cmd   = "curl -o"
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Keyboard shortcuts
