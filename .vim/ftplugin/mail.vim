@@ -6,4 +6,5 @@ iab <buffer> brd Best regards,<Return><Return>depesz
 iab <buffer> phl Pozdrawiam,<Return><Return>Hubert Lubaczewski
 
 setlocal tw=72
-setlocal spell spelllang=en_us
+setlocal spelllang=en_us,pl
+setlocal spell
