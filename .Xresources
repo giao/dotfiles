@@ -1,0 +1,8 @@
+XTerm*background:      #0C160C
+XTerm*foreground:      lightgray
+XTerm*allowBoldFonts:  false
+XTerm*loginShell:      true
+XTerm*locale:          true
+XTerm*termName:        xterm-256color
+XTerm*metaSendsEscape: true
+XTerm*faceName: Liberation Mono:size=10:antialias=true
