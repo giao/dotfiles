@@ -1,3 +1,0 @@
-[submodule ".vim/test/closetag"]
-	path = .vim/test/closetag
-	url = https://github.com/vim-scripts/closetag.vim
