@@ -6,3 +6,18 @@ xterm*locale:          true
 xterm*termName:        xterm-256color
 xterm*metaSendsEscape: true
 xterm*faceName: Liberation Mono:size=10:antialias=true
+
+urxvt*background:        #0C160C
+urxvt*foreground:        lightgray
+urxvt*allowBoldFonts:    false
+urxvt*loginShell:        true
+urxvt*locale:            true
+urxvt*termName:          rxvt-256color
+urxvt*metaSendsEscape:   true
+urxvt*font:              xft:Liberation Mono:size=10:antialias=true
+urxvt*borderLess:        true
+urxvt*scrollBar:         false
+urxvt*borderColor:       #182218
+urxvt*internalBorder:    1
+urxvt*scrollTtyOutput:   false
+urxvt*scrollTtyKeypress: true
