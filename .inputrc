@@ -6,6 +6,7 @@ set  horizontal-scroll-mode  on
 
 $if Bash
     "\ep":"ssh pgdba@localhost\n"
+    "\et":"ssh test@localhost\n"
     "\eOP":"ssh d\n"
 $endif
 $if Psql
