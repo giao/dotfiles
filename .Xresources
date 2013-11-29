@@ -7,17 +7,33 @@ xterm*termName:        xterm-256color
 xterm*metaSendsEscape: true
 xterm*faceName: Liberation Mono:size=10:antialias=true
 
-urxvt*background:        #0C160C
-urxvt*foreground:        lightgray
-urxvt*allowBoldFonts:    false
-urxvt*loginShell:        true
-urxvt*locale:            true
-urxvt*termName:          rxvt-256color
-urxvt*metaSendsEscape:   true
-urxvt*font:              xft:Liberation Mono:size=10:antialias=true
-urxvt*borderLess:        true
-urxvt*scrollBar:         false
-urxvt*borderColor:       #182218
-urxvt*internalBorder:    1
-urxvt*scrollTtyOutput:   false
-urxvt*scrollTtyKeypress: true
+URxvt*background:        #0C160C
+URxvt*foreground:        lightgray
+URxvt*allowBoldFonts:    false
+URxvt*loginShell:        true
+URxvt*locale:            true
+URxvt*termName:          rxvt-256color
+URxvt*metaSendsEscape:   true
+URxvt*font:              xft:Liberation Mono:size=10:antialias=true
+URxvt*borderLess:        true
+URxvt*scrollBar:         false
+URxvt*borderColor:       #182218
+URxvt*internalBorder:    1
+URxvt*scrollTtyOutput:   false
+URxvt*scrollTtyKeypress: true
+URxvt*saveLines:         10000
+URxvt*perl-ext-common:   -searchable-scrollback
+URxvt*perl-ext:          -searchable-scrollback
+! Mod4 == Super key, which is windows key
+! \002 is ctrl-b, which is tmux control key combination
+! \015 is simply "enter" - so that the command will run
+! \x21 is ! - for some reason neither Mod4-!, nor Mod4-Shift-1 work
+URxvt.keysym.Mod4-0x21:       \002:new-window -n alerts 'ssh -qt andy tmux-mobilealert'\015
+URxvt.keysym.Mod4-Control-n:  \002c
+URxvt.keysym.Mod4-m:          \002:new-window -n mutt 'ssh -qt andy tmux-mutt'\015
+URxvt.keysym.Mod4-M:          \002:new-window -n omnimutt 'ssh -qt andy tmux-omnimutt'\015
+URxvt.keysym.Mod4-i:          \002:new-window -n instructure 'ssh -qt andy tmux-instructuremutt'\015
+URxvt.keysym.Mod4-s:          \002:new-window -n slrn 'ssh -qt andy tmux-slrn'\015
+URxvt.keysym.Mod4-d:          \002:new-window -n andy 'ssh andy'\015
+URxvt.keysym.Mod4-t:          \002:new-window -n torrent-a 'ssh torrent'\015
+URxvt.keysym.Mod4-T:          \002:new-window -n torrent-b 'ssh media@blob'\015
