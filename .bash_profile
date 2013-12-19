@@ -1,4 +1,8 @@
+# env directory is usually the same as $HOME
 env_directory="$( dirname "${BASH_SOURCE[0]}" )"
+
+# dotfiles directory is path to where dotfiles were cloned/copied to.
+dotfiles_directory="$( dirname "$( readlink -f "${BASH_SOURCE[0]}" )" )"
 
 if [[ -e "$env_directory/.bashrc" ]]
 then
@@ -23,9 +27,9 @@ screen_as_shell() {
 # Function below works just as screen_as_shell(), but uses tmux instead
 
 tmux_as_shell() {
-    if [[ ( -z "$TMUX" ) && ( ! -z "$SSH_CONNECTION" ) && ( -f "$env_directory/.environment/bin/tmux-auto-reattach" ) ]]
+    if [[ ( -z "$TMUX" ) && ( ! -z "$SSH_CONNECTION" ) && ( -f "$dotfiles_directory/bin/tmux-auto-reattach" ) ]]
     then
-        exec "$env_directory/.environment/bin/tmux-auto-reattach" -n shell bash -l
+        exec "$dotfiles_directory/bin/tmux-auto-reattach" -s -n shell bash -l
     fi
 }
 
