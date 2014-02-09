@@ -41,6 +41,7 @@ set iskeyword+=_,$,@,%,#
 set laststatus=2
 set list
 set listchars=tab:»·,trail:·
+set nostartofline
 set number
 set showbreak=+++·
 set showcmd
