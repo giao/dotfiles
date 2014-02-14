@@ -1,0 +1,16 @@
+[user]
+	name = Hubert depesz Lubaczewski
+	email = depesz@depesz.com
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	grep = auto
+	interactive = auto
+[alias]
+	graph = log --oneline --graph --decorate
+	ci = commit
+	st = status
+	co = checkout
+[push]
+	default = simple
