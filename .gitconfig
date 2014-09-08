@@ -1,16 +1,29 @@
 [user]
-	name = Hubert depesz Lubaczewski
-	email = depesz@depesz.com
+    name = Hubert depesz Lubaczewski
+    email = depesz@depesz.com
 [color]
-	diff = auto
-	status = auto
-	branch = auto
-	grep = auto
-	interactive = auto
+    ui = auto
 [alias]
-	graph = log --oneline --graph --decorate
-	ci = commit
-	st = status
-	co = checkout
+    graph = log --oneline --graph --decorate
+    ci = commit
+    st = status
+    co = checkout
+    unpushed = log --stat origin/master..HEAD
+    gg = grep --break --heading -n
+    hist = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset%n%w(80,8,8)%s' --graph
+    histfull = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset%C(yellow)%d%Creset %Cgreen(%cr)%Creset%n%w(80,8,8)%s%n' --graph --name-status
+    llog = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=iso
+    changelog = log --pretty=format:'%Cgreen%d %Creset%s' --date=iso
+    bbranch = branch -v
+    branches = branch -avvl
+    alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+    cleanup = !git branch --merged master | grep -v 'master$' | xargs git branch -d
+    unstage = reset HEAD --
 [push]
-	default = simple
+    default = simple
+[apply]
+    whitespace = nowarn
+[code]
+    pager = less -r
+[help]
+    autocorrect = 1
