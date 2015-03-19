@@ -17,7 +17,7 @@
     bbranch = branch -v
     branches = branch -avvl
     alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
-    cleanup = !git branch --merged master | grep -v 'master$' | xargs git branch -d
+    cleanup = !git branch --merged master | grep -v 'master$' | xargs -r git branch -d
     unstage = reset HEAD --
     check-whitespace = !git diff-tree --check $(git hash-object -t tree /dev/null) HEAD
 [push]
