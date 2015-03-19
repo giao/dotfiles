@@ -15,7 +15,7 @@ URxvt*locale:            true
 URxvt*termName:          rxvt-256color
 URxvt*metaSendsEscape:   true
 URxvt*font:              xft:Liberation Mono:size=10:antialias=true
-URxvt*borderLess:        true
+URxvt*borderLess:        false
 URxvt*scrollBar:         false
 URxvt*borderColor:       #182218
 URxvt*internalBorder:    1
