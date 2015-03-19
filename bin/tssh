@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+destination="$1"
+window_name="${destination%%.*}"
+
+tmux new-window -n "$window_name" "exec ssh $destination"
