@@ -53,6 +53,8 @@ set visualbell
 set wildmenu
 set wildmode=list:longest
 set wrap
+set splitbelow
+set splitright
 
 " Indenting
 set autoindent
@@ -82,6 +84,8 @@ inoremap <C-a> <Home>
 inoremap <C-e> <End>
 " Zoom current window
 nnoremap <F5>  <C-w>_
+" Is anyone really usin Ex mode?
+nnoremap Q <nop>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
