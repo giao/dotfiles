@@ -28,7 +28,7 @@ nnoremap  <Enter>  :nohlsearch<Enter>
 " File management
 set directory=~/.vim/swap
 set nobackup
-set noexrc
+set exrc
 set tags=./tags,./TAGS,tags,TAGS,~/.tags
 set autochdir
 
