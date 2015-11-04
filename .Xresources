@@ -7,23 +7,23 @@ xterm*termName:        xterm-256color
 xterm*metaSendsEscape: true
 xterm*faceName: Liberation Mono:size=10:antialias=true
 
-URxvt*background:        #0C160C
-URxvt*foreground:        lightgray
-URxvt*allowBoldFonts:    false
-URxvt*loginShell:        true
-URxvt*locale:            true
-URxvt*termName:          rxvt-256color
-URxvt*metaSendsEscape:   true
-URxvt*font:              xft:Liberation Mono:size=10:antialias=true
-URxvt*borderLess:        false
-URxvt*scrollBar:         false
-URxvt*borderColor:       #182218
-URxvt*internalBorder:    1
-URxvt*scrollTtyOutput:   false
-URxvt*scrollTtyKeypress: true
-URxvt*saveLines:         10000
-URxvt*perl-ext-common:   -searchable-scrollback
-URxvt*perl-ext:          -searchable-scrollback
+URxvt.background:        #080808
+URxvt.foreground:        lightgrey
+URxvt.allowBoldFonts:    false
+URxvt.loginShell:        true
+URxvt.locale:            true
+URxvt.termName:          rxvt-256color
+URxvt.metaSendsEscape:   true
+URxvt.font:              xft:Liberation Mono:size=10:antialias=true
+URxvt.borderLess:        false
+URxvt.scrollBar:         false
+URxvt.borderColor:       #182218
+URxvt.internalBorder:    1
+URxvt.scrollTtyOutput:   false
+URxvt.scrollTtyKeypress: true
+URxvt.saveLines:         10000
+URxvt.perl-ext-common:   -searchable-scrollback,tabbed
+URxvt.perl-ext:          -searchable-scrollback,tabbed
 ! Mod4 == Super key, which is windows key
 ! \002 is ctrl-b, which is tmux control key combination
 ! \015 is simply "enter" - so that the command will run
@@ -37,3 +37,26 @@ URxvt.keysym.Mod4-s:          \002:new-window -n slrn 'ssh -qt andy tmux-slrn'\0
 URxvt.keysym.Mod4-d:          \002:new-window -n andy 'ssh andy'\015
 URxvt.keysym.Mod4-t:          \002:new-window -n torrent-a 'ssh torrent'\015
 URxvt.keysym.Mod4-T:          \002:new-window -n torrent-b 'ssh media@blob'\015
+URxvt.tabbed.tabbar-fg:           28
+URxvt.tabbed.tabbar-bg:           22
+URxvt.tabbed.tab-fg:              46
+URxvt.tabbed.tab-bg:              22
+URxvt.tabbed.tab-prefix:          \040
+URxvt.tabbed.tab-suffix:          \040
+URxvt.tabbed.active-tab-fg:       51
+URxvt.tabbed.active-tab-bg:       22
+URxvt.tabbed.active-tab-prefix:   *
+URxvt.tabbed.active-tab-suffix:   *
+URxvt.tabbed.current-tab-fg:      3
+URxvt.tabbed.current-tab-bg:      22
+URxvt.tabbed.current-tab-prefix:  <
+URxvt.tabbed.current-tab-suffix:  >
+URxvt.tabbed.new-fg:              40
+URxvt.tabbed.new-bg:              22
+URxvt.tabbed.new-prefix:
+URxvt.tabbed.new-suffix:          \040
+URxvt.tabbed.new-label:           ++
+URxvt.tabbed.separator:           |
+
+irc.backgroundPixmap:  /home/depesz/Dropbox/Backgrounds/term-1.png;style=tiled
+irc.font:              xft:Liberation Mono:pixelsize=13
