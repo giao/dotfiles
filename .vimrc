@@ -124,7 +124,3 @@ nmap <F8> :TagbarToggle<Enter>
 " Color schema
 colorscheme depesz
 
-" Color overflowing lines
-highlight ColorColumn ctermbg=magenta
-call matchadd('ColorColumn', '\%81v', 100)
-
