@@ -4,4 +4,5 @@
 \set PROMPT2 '>> '
 \set HISTFILE ~/.psql_history- :DBNAME
 \pset pager always
+\timing
 \unset QUIET
