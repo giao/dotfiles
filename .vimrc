@@ -97,8 +97,9 @@ execute pathogen#infect()
 
 " Plugin configuration
 " Syntastic:
+let g:syntastic_ruby_rubylint_exec = '/home/depesz/.vim/ruby-lint.sh'
 let g:syntastic_check_on_open = 1
-
+let g:syntastic_ruby_checkers = ['mri', 'rubylint']
 " NERD-Tree:
 nmap <F3> :NERDTreeToggle<Enter>
 
