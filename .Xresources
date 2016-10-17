@@ -7,6 +7,7 @@ xterm*termName:        xterm-256color
 xterm*metaSendsEscape: true
 xterm*faceName: Liberation Mono:size=10:antialias=true
 
+URxvt.iso14755:          false
 URxvt.background:        #080808
 URxvt.foreground:        lightgrey
 URxvt.allowBoldFonts:    false
@@ -22,8 +23,8 @@ URxvt.internalBorder:    1
 URxvt.scrollTtyOutput:   false
 URxvt.scrollTtyKeypress: true
 URxvt.saveLines:         10000
-URxvt.perl-ext-common:   -searchable-scrollback,tabbed
-URxvt.perl-ext:          -searchable-scrollback,tabbed
+URxvt.perl-ext-common:   -searchable-scrollback,tabbed,eval
+URxvt.perl-ext:          -searchable-scrollback,tabbed,eval
 ! Mod4 == Super key, which is windows key
 ! \002 is ctrl-b, which is tmux control key combination
 ! \015 is simply "enter" - so that the command will run
