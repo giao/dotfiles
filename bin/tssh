@@ -3,4 +3,4 @@
 destination="$1"
 window_name="${destination%%.*}"
 
-tmux new-window -n "$window_name" "exec ssh $destination"
+tmux new-window -n "$window_name" "BINARY_SSH=/usr/bin/ssh exec ssh-ident $destination"
