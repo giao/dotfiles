@@ -9,6 +9,74 @@ then
     source "$env_directory/.bashrc"
 fi
 
+# Helper function to attach to existing SSH Agent socket, in case environment
+# got broken
+steal_ssh_agent() {
+    # Generate data about existing (and accessible) SSH Agent sockets
+    # Format is:
+    # loaded_key_count socket_creation_time socket_path list_of_loaded_keys_base64_encoded
+    # Data is sorted numerically, so last line will have the most keys, and if
+    # multiple sockets have the same number of keys - newest socket will be last
+    sockets_data="$(
+        for socket in /tmp/ssh*/*
+        do
+            # Gets list of loaded keys from given SSH Socket
+            socket_keys="$( SSH_AUTH_SOCK="$socket" timeout 5 ssh-add -l 2> /dev/null )"
+            key_count="$( echo "${socket_keys}" | wc -l )"
+
+            # If there are no loaded keys, there is no point in showing it
+            (( 0 == "$key_count" )) && continue
+
+            # Get timestamp (seconds from epoch) for when the socket was
+            # created (to pick newest one).
+            socket_created="$( stat -c '%Y' "$socket" )"
+
+            # Return formatted data
+            printf "%d %d %s %s\n" "$key_count" "$socket_created" "$socket" "$( echo "${socket_keys}" | base64 | tr -d '\n' )"
+        done | sort -n
+        )"
+
+    socket_count="$( echo "${sockets_data}" | wc -l )"
+
+    # Processing makes sense only if there are some keys...
+    if (( 0 == "${socket_count}" ))
+    then
+        echo "There are no available SSH sockets with loaded keys." >&2
+    else
+        if (( 1 == "${socket_count}" ))
+        then
+            echo "Available socket:"
+        else
+            echo "Available sockets:"
+        fi
+
+        # i is loop counter, to find out which key is last.
+        i=0
+        while read key_count socket_created socket keys_data_base64
+        do
+            (( i++ ))
+
+            # Command that can be used to set this socket.
+            cmd="export SSH_AUTH_SOCK=${socket}"
+
+            # Print socket info
+            printf '%2d> %-60s # Created: %s\n' "$i" "$cmd" "$( date -d "@${socket_created}" +"%Y-%m-%d %H:%M:%S %Z" )"
+
+            # also print list of keys in this agent
+            echo "$keys_data_base64" | base64 -d - | nl | sed 's/^ */  /;s/\t/. /'
+
+            # set env if this is last socket.
+            if (( "$i" == "${socket_count}" ))
+            then
+                $cmd
+            else
+                echo
+            fi
+        done <<< "${sockets_data}"
+        printf '\nPicked last socket.\n'
+    fi
+}
+
 # If you will run this function in your .bash_profile-local, when you'll log to the account via ssh, it will automatically start shared screen session.
 # Thanks to this - screen will be always started when you work on this account (unless you'll work around not to run it).
 
