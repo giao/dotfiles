@@ -37,3 +37,6 @@
 [submodule ".vim/bundle/vim-template"]
 	path = .vim/bundle/vim-template
 	url = https://github.com/thinca/vim-template.git
+[submodule "gits/rubygems-completion"]
+	path = gits/rubygems-completion
+	url = https://github.com/pdkl95/rubygems-completion.git

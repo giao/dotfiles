@@ -1,0 +1,5 @@
+# env directory is usually the same as $HOME
+real_script_path="$( readlink -f "${BASH_SOURCE[0]}" )"
+real_dotfiles_dir="$( dirname "${real_script_path}" )"
+
+[[ -f "${real_dotfiles_dir}/gits/rubygems-completion/rubygems-completion.bash" ]] && . "${real_dotfiles_dir}/gits/rubygems-completion/rubygems-completion.bash"
