@@ -40,3 +40,6 @@
 [submodule "gits/rubygems-completion"]
 	path = gits/rubygems-completion
 	url = https://github.com/pdkl95/rubygems-completion.git
+[submodule "gits/tmux-bash-completion"]
+	path = gits/tmux-bash-completion
+	url = https://github.com/imomaliev/tmux-bash-completion.git
