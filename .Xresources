@@ -60,6 +60,6 @@ URxvt.tabbed.new-label:           ++
 URxvt.tabbed.separator:           |
 
 irc.backgroundPixmap:  /home/depesz/Dropbox/Backgrounds/term-1.png;style=tiled
-irc.font:              xft:Liberation Mono:pixelsize=13
+irc.font:              xft:Liberation Mono:pixelsize=17
 
 NetHack.double_tile_size: True
