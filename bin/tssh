@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
 destination="$1"
-window_name="${destination%%.*}"
+if [[ "${destination}" =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]
+then
+    window_name="${destination//\./_}"
+else
+    window_name="${destination%%.*}"
+fi
 
 tmux new-window -n "$window_name" "BINARY_SSH=/usr/bin/ssh exec ssh-ident $destination"
