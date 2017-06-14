@@ -1,0 +1,5 @@
+.gnupg/*.gpg
+.gnupg/*.gpg~
+.gnupg/.gpg*
+.gnupg/private-keys*
+.gnupg/random_seed

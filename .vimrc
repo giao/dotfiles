@@ -75,6 +75,9 @@ set scrolloff=5
 " netrw
 let g:netrw_http_cmd   = "curl -o"
 
+" Use newer gpg
+let g:GPGExecutable = "gpg2 --trust-model always"
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Keyboard shortcuts
