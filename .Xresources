@@ -7,6 +7,7 @@ xterm*termName:        xterm-256color
 xterm*metaSendsEscape: true
 xterm*faceName: Liberation Mono:size=10:antialias=true
 
+URxvt.chdir:             /home/depesz
 URxvt.iso14755:          false
 URxvt.background:        #080808
 URxvt.foreground:        lightgrey
