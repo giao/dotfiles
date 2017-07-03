@@ -6,3 +6,5 @@ for completion_file in "gits/rubygems-completion/rubygems-completion.bash" "gits
 do
     [[ -f "${real_dotfiles_dir}/${completion_file}" ]] && . "${real_dotfiles_dir}/${completion_file}"
 done
+
+type -P aws_completer &>/dev/null && complete -C aws_completer aws
