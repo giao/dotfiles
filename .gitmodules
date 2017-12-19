@@ -46,3 +46,6 @@
 [submodule ".vim/bundle/tmux.vim"]
 	path = .vim/bundle/tmux.vim
 	url = https://github.com/keith/tmux.vim.git
+[submodule ".vim/bundle/rust.vim"]
+	path = .vim/bundle/rust.vim
+	url = https://github.com/rust-lang/rust.vim.git
